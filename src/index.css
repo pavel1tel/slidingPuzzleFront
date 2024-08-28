@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dropzone {
+  border: 2px dashed #cccccc;
+  padding: 20px;
+  cursor: pointer;
+  margin: 20px;
+}

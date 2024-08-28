@@ -1,7 +1,7 @@
 import { CreateGameResponse, GetGameResponse, MoveDirection } from "./types";
 
 export const startNewGame = ({callback} : {callback : (arg0: CreateGameResponse) => void}) => {
-    fetch("http://localhost:8080/api/game", 
+    fetch("http://localhost:8080/api/v1/games", 
     {
         'credentials': 'include',
         headers: {
@@ -18,7 +18,7 @@ export const startNewGame = ({callback} : {callback : (arg0: CreateGameResponse)
 }
 
 export const getGame = ({id, callback} : { id : number ; callback : (arg0: GetGameResponse) => void}) => {
-    fetch("http://localhost:8080/api/game/" + id, 
+    fetch("http://localhost:8080/api/v1/games/" + id, 
     {
         'credentials': 'include',
         headers: {
@@ -34,9 +34,26 @@ export const getGame = ({id, callback} : { id : number ; callback : (arg0: GetGa
       });
 }
 
+export const getGames = ({callback} : { callback : (arg0: GetGameResponse[]) => void}) => {
+  fetch("http://localhost:8080/api/v1/games", 
+  {
+      'credentials': 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "GET",
+  }
+  ).then((res) => {
+      return res.json();
+  }).then((data : GetGameResponse[]) => {
+      callback(data);
+    });
+}
+
 
 export const move = ({id, direction ,callback} : {id : number, direction : MoveDirection ,callback : (arg0: GetGameResponse) => void}) => {
-  fetch("http://localhost:8080/api/game/" + id, 
+  fetch("http://localhost:8080/api/v1/games/" + id, 
   {
       'credentials': 'include',
       headers: {

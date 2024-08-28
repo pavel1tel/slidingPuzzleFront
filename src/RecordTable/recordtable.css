@@ -1,0 +1,30 @@
+.record-table {
+    width: 400px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .record-table th,
+  .record-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .record-table th {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .record-table td {
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .record-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .record-table tr:hover {
+    background-color: #ddd;
+  }

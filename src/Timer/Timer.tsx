@@ -18,6 +18,9 @@ export const Timer = ({ startingTime, isFinised} : {startingTime: string; isFini
           setTimePassed(timeDifference);
         };
     
+        if(isFinised){
+          return;
+        }
         const intervalId = setInterval(updateCounter, 1000);
         setInter(intervalId);
         return () => clearInterval(intervalId);
